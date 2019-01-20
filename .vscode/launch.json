@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-DemoApplication<restapi>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.shiina.example.restapi.DemoApplication",
+            "projectName": "restapi",
+            "args": ""
+        }
+    ]
+}
