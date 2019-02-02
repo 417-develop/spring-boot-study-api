@@ -12,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.NoHandlerFoundException;
@@ -35,6 +36,16 @@ public class BadRequestExceptionHandler {
                 new ApiError("400","NotReadable")
                 ,HttpStatus.BAD_REQUEST);
     }
+
+    // /**
+    //  * 400 - Bad Reque
+    //  */
+    // @ExceptionHandler(MethodArgumentNotValidException.class)
+    // public ResponseEntity<ApiError> notFound(HttpServletRequest req,  MethodArgumentNotValidException e){
+    //     return new ResponseEntity<ApiError>(
+    //             new ApiError("400",e.getMessage())
+    //             ,HttpStatus.BAD_REQUEST);
+    // }
 
     /**
      * 404 - Not Found
@@ -69,7 +80,7 @@ public class BadRequestExceptionHandler {
         e.printStackTrace();
 
         return new ResponseEntity<ApiError>(
-                new ApiError("500","unknown error")
+                new ApiError("500",e.getMessage())
                 ,HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }
