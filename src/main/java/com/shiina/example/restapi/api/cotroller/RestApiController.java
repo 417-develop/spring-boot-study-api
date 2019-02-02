@@ -30,9 +30,8 @@ public class RestApiController {
     private final ExternalClient client;
 
     @GetMapping("/")
-    public ExternalResponse get() {
-        ExternalResponse response = client.get(ExternalClient.GET_USERS, ExternalResponse.class);
-        return response;
+    public String get() {
+        return "helloWorld";
     }
 
     @PostMapping("/{id}")
